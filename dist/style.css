@@ -4,3 +4,31 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+theFlex, section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+section {
+  height: 100vh;
+  background-color: aquamarine;
+}
+section table {
+  width: 50em;
+  height: 50em;
+  border: 5px solid black;
+  border-collapse: collapse;
+}
+section table tr {
+  flex-direction: row;
+}
+section table tr td {
+  border: 5px solid black;
+  font-size: 4em;
+  padding: 1em;
+}
