@@ -5,7 +5,7 @@ const table = document.querySelector("table")
 const section = document.querySelector("section");
 
 const highlight = (element) => {
-    if (element.textContent === "" && !winOrNot(table)) {
+    if (element.textContent === "" && !winOrNot(table)) { //td 
         let pop = new Audio("./Audio/pop.MP3");
         pop.play();
         if (num_of_plays === 3) {
@@ -17,7 +17,7 @@ const highlight = (element) => {
         }
         num_of_plays++;
         element.textContent = letter;
-        letter === "x" ? letter = "o" : letter = "x";
+        letter = letter === "x" ? "o" :  "x";
         if (winOrNot(table)) {
             if (letter === "x") {
                 h1.textContent = "O has won!!";

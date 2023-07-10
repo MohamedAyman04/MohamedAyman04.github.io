@@ -8,6 +8,7 @@ var section = document.querySelector("section");
 
 var highlight = function highlight(element) {
   if (element.textContent === "" && !winOrNot(table)) {
+    //td 
     var pop = new Audio("./Audio/pop.MP3");
     pop.play();
 
@@ -21,7 +22,7 @@ var highlight = function highlight(element) {
 
     num_of_plays++;
     element.textContent = letter;
-    letter === "x" ? letter = "o" : letter = "x";
+    letter = letter === "x" ? "o" : "x";
 
     if (winOrNot(table)) {
       if (letter === "x") {
