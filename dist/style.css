@@ -14,8 +14,21 @@ theFlex, section {
   gap: 10px;
 }
 
+h1 {
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+}
+
+.win {
+  color: red;
+  font-size: 4em;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 section {
-  height: 100vh;
+  height: 95vh;
   background-color: aquamarine;
 }
 section table {
@@ -29,6 +42,8 @@ section table tr {
 }
 section table tr td {
   border: 5px solid black;
+  padding: 1.5em;
   font-size: 4em;
-  padding: 1em;
+  text-align: center;
+  cursor: pointer;
 }
