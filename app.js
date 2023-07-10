@@ -16,12 +16,18 @@ const highlight = (element) => {
 }
 
 const winOrNot = (table) => {
-    if (horizontalWin(table))
+    if (horizontalWin(table)) {
+        console.log("won by horizontal");
         return true;
-    if (verticalWin(table))
+    }
+    if (verticalWin(table)) {
+        console.log("won by vertical");
         return true;
-    if (diagonalWin(table))
+    }
+    if (diagonalWin(table)) {
+        console.log("won by diagonal");
         return true;
+    }
     return false;
 }
 
@@ -38,6 +44,7 @@ const horizontalWin = (table) => {
         if (counter === 3 || counter === -3) {
             return true;
         }
+        counter = 0;
     }
     return false;
 }
@@ -55,6 +62,7 @@ const verticalWin = (table) => {
         if (counter === 3 || counter === -3) {
             return true;
         }
+        counter = 0;
     }
     return false;
 }
