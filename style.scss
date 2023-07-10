@@ -15,8 +15,8 @@ theFlex {
 }
 
 h1 {
-    height: 5vh;
-    line-height: 5vh;
+    height: 3vh;
+    line-height: 3vh;
     text-align: center;
 }
 
@@ -29,7 +29,7 @@ h1 {
 
 section {
     @extend theFlex;
-    height: 95vh;
+    height: 94.7vh;
     background-color: aquamarine;  
     table {
         width: 50em;

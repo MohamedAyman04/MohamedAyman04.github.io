@@ -2,14 +2,17 @@ let letter = "x";
 let num_of_plays = 0;
 const h1 = document.querySelector("h1");
 const table = document.querySelector("table")
+const section = document.querySelector("section");
 
 const highlight = (element) => {
     if (element.textContent === "" && !winOrNot(table)) {
+        let pop = new Audio("./Audio/pop.MP3");
+        pop.play();
         if (num_of_plays === 3) {
-            let boss = new Audio("boss.MP3");
+            let boss = new Audio("./Audio/boss.MP3");
             boss.play();
         } else if (num_of_plays === 6) {
-            let hunt = new Audio("hunt.MP3");
+            let hunt = new Audio("./Audio/hunt.MP3");
             hunt.play();
         }
         num_of_plays++;
@@ -18,14 +21,23 @@ const highlight = (element) => {
         if (winOrNot(table)) {
             if (letter === "x") {
                 h1.textContent = "O has won!!";
-                let o = new Audio("o.mp3");
+                let o = new Audio("./Audio/o.mp3");
                 o.play();
             } else {
                 h1.textContent = "X has won!!";
-                let x = new Audio("x.mp3");
+                let x = new Audio("./Audio/x.mp3");
                 x.play();
             }
             h1.classList.add("win");
+            const button = document.createElement("p");
+            button.textContent = "Play Again";
+            button.addEventListener("click", () => {
+                pop.play();
+                window.location.reload();
+            });
+            button.classList.add("btn", "btn-primary", "btn-lg");
+            section.appendChild(button);
+            console.log("went here")
         } else {
             h1.textContent = letter === "o" ? "O's turn" : "X's turn";
         }

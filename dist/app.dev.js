@@ -4,14 +4,18 @@ var letter = "x";
 var num_of_plays = 0;
 var h1 = document.querySelector("h1");
 var table = document.querySelector("table");
+var section = document.querySelector("section");
 
 var highlight = function highlight(element) {
   if (element.textContent === "" && !winOrNot(table)) {
+    var pop = new Audio("./Audio/pop.MP3");
+    pop.play();
+
     if (num_of_plays === 3) {
-      var boss = new Audio("boss.MP3");
+      var boss = new Audio("./Audio/boss.MP3");
       boss.play();
     } else if (num_of_plays === 6) {
-      var hunt = new Audio("hunt.MP3");
+      var hunt = new Audio("./Audio/hunt.MP3");
       hunt.play();
     }
 
@@ -22,15 +26,24 @@ var highlight = function highlight(element) {
     if (winOrNot(table)) {
       if (letter === "x") {
         h1.textContent = "O has won!!";
-        var o = new Audio("o.mp3");
+        var o = new Audio("./Audio/o.mp3");
         o.play();
       } else {
         h1.textContent = "X has won!!";
-        var x = new Audio("x.mp3");
+        var x = new Audio("./Audio/x.mp3");
         x.play();
       }
 
       h1.classList.add("win");
+      var button = document.createElement("p");
+      button.textContent = "Play Again";
+      button.addEventListener("click", function () {
+        pop.play();
+        window.location.reload();
+      });
+      button.classList.add("btn", "btn-primary", "btn-lg");
+      section.appendChild(button);
+      console.log("went here");
     } else {
       h1.textContent = letter === "o" ? "O's turn" : "X's turn";
     }
