@@ -1,13 +1,30 @@
 let letter = "x";
+let num_of_plays = 0;
 const h1 = document.querySelector("h1");
 const table = document.querySelector("table")
 
 const highlight = (element) => {
     if (element.textContent === "" && !winOrNot(table)) {
+        if (num_of_plays === 3) {
+            let boss = new Audio("boss.MP3");
+            boss.play();
+        } else if (num_of_plays === 6) {
+            let hunt = new Audio("hunt.MP3");
+            hunt.play();
+        }
+        num_of_plays++;
         element.textContent = letter;
         letter === "x" ? letter = "o" : letter = "x";
         if (winOrNot(table)) {
-            h1.textContent = letter === "x" ? "O has won!!" : "X has won!!";
+            if (letter === "x") {
+                h1.textContent = "O has won!!";
+                let o = new Audio("o.mp3");
+                o.play();
+            } else {
+                h1.textContent = "X has won!!";
+                let x = new Audio("x.mp3");
+                x.play();
+            }
             h1.classList.add("win");
         } else {
             h1.textContent = letter === "o" ? "O's turn" : "X's turn";
