@@ -45,6 +45,23 @@ var highlight = function highlight(element) {
       button.classList.add("btn", "btn-primary", "btn-lg");
       section.appendChild(button);
       console.log("went here");
+    } else if (num_of_plays == 9) {
+      var _button = document.createElement("p");
+
+      _button.textContent = "Play Again";
+
+      _button.addEventListener("click", function () {
+        pop.play();
+        window.location.reload();
+      });
+
+      _button.classList.add("btn", "btn-primary", "btn-lg");
+
+      section.appendChild(_button);
+      console.log("went here");
+      h1.textContent = "Tie!";
+      var tie = new Audio("./Audio/tie.mp3");
+      tie.play();
     } else {
       h1.textContent = letter === "o" ? "O's turn" : "X's turn";
     }

@@ -38,6 +38,19 @@ const highlight = (element) => {
             button.classList.add("btn", "btn-primary", "btn-lg");
             section.appendChild(button);
             console.log("went here")
+        } else if (num_of_plays == 9) {
+            const button = document.createElement("p");
+            button.textContent = "Play Again";
+            button.addEventListener("click", () => {
+                pop.play();
+                window.location.reload();
+            });
+            button.classList.add("btn", "btn-primary", "btn-lg");
+            section.appendChild(button);
+            console.log("went here")
+            h1.textContent = "Tie!";
+            let tie = new Audio("./Audio/tie.mp3");
+            tie.play();
         } else {
             h1.textContent = letter === "o" ? "O's turn" : "X's turn";
         }
